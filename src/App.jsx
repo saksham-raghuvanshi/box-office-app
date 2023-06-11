@@ -1,9 +1,11 @@
 import { BrowserRouter as Router, Routes,Route } from "react-router-dom";
-import Home from "./Components/Home";
-import Notfound from "./Components/Notfound";
-
 import "./Styles/notfound.scss"
-import Starred from "./Components/Starred";
+import Home from "./Pages/Home";
+import Starred from "./Pages/Starred";
+import Notfound from "./Pages/Notfound";
+import MainLayout from "./Components/MainLayout";
+import "./Styles/styles.scss"
+
 
 
 function App() {
@@ -11,9 +13,11 @@ function App() {
 
     <Router>
       <Routes>
+        <Route element={<MainLayout/>}>
         <Route path="/" element={<Home/>} />
         <Route path="/starred" element={<Starred/>} />
         <Route path="*" element={<Notfound/>}/>
+        </Route>
 
         
       </Routes>
