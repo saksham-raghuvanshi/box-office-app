@@ -14,10 +14,11 @@ const Home = () => {
     // for prevent loading on search
     ev.preventDefault();
 
+    const trimmedSearch = search.trim();
     // fetch data from api // response
     //await always work with async function
     const response = await fetch(
-      'https://api.tvmaze.com/search/shows?q=${search}'
+      'https://api.tvmaze.com/search/shows?q=' + trimmedSearch
     );
     const body = await response.json();
 
