@@ -3,7 +3,8 @@ import { searchforshow } from '../Api/tvmaze';
 
 const Home = () => {
   const [search, setSearch] = useState(' ');
-  const [apiData, setApiData] = useState(null);
+  const [apiData, setApiData] = useState(null); //[]
+  const [apidataerror, setapidataerror] = useState(null);
 
   console.log(search);
   const onSearchInputChange = ev => {
@@ -26,18 +27,33 @@ const Home = () => {
 
     // console.log(body);
 
-    //
+    // const result = await searchforshow(search);
+    // setApiData(result);
 
-    const result = await searchforshow(search);
-    setApiData(result);
+    //for catch error use try catch
+
+    try {
+      //every time refresh its value 0
+      setapidataerror(null);
+      const result = await searchforshow(search);
+      setApiData(result);
+    } catch (error) {
+      setapidataerror(error);
+    }
   };
 
   const renderApiData = () => {
+    if (apidataerror) {
+      return <div>Error occured: {apidataerror.message}</div>;
+    }
+
     if (apiData) {
       return apiData.map(data => (
         <div key={data.show.id}>{data.show.name}</div>
       ));
     }
+
+    return null;
   };
   return (
     <div>
