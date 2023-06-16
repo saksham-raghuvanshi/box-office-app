@@ -1,26 +1,13 @@
 import { useState } from 'react';
 import { searchforshow, searchforactor } from '../Api/tvmaze';
+import Searchform from '../Components/Searchform';
 
 const Home = () => {
-  const [search, setSearch] = useState(' ');
   const [apiData, setApiData] = useState(null); //[]
   const [apidataerror, setapidataerror] = useState(null);
-  const [searchoption, setSearchoption] = useState('shows');
 
-  console.log(search);
-  const onSearchInputChange = ev => {
-    //target means input value measns that enter check from dev console
-    setSearch(ev.target.value);
-    console.log(setSearch);
-  };
-
-  const OnRadiochange = ev => {
-    setSearchoption(ev.target.value);
-  };
-
-  const onSearch = async ev => {
+  const onSearch = async ({ q, searchoption }) => {
     // for prevent loading on search
-    ev.preventDefault();
 
     // const trimmedSearch = search.trim();
     // // fetch data from api // response
@@ -42,10 +29,10 @@ const Home = () => {
       setapidataerror(null);
 
       if (searchoption === 'shows') {
-        const result = await searchforshow(search);
+        const result = await searchforshow(q);
         setApiData(result);
       } else {
-        const result = await searchforactor(search);
+        const result = await searchforactor(q);
         setApiData(result);
       }
     } catch (error) {
@@ -70,37 +57,7 @@ const Home = () => {
   };
   return (
     <div>
-      <form onSubmit={onSearch}>
-        <input
-          type="text"
-          value={search}
-          onChange={onSearchInputChange}
-          placeholder="Search for something"
-        />
-
-        <label>
-          Shows
-          <input
-            type="radio"
-            name="search-option"
-            value="shows"
-            checked={searchoption === 'shows'}
-            onChange={OnRadiochange}
-          />
-        </label>
-
-        <label>
-          Actors
-          <input
-            type="radio"
-            name="search-option"
-            value="actors"
-            checked={searchoption === 'actors'}
-            onChange={OnRadiochange}
-          />
-        </label>
-        <button type="submit">Search</button>
-      </form>
+      <Searchform onSearch={onSearch} />
 
       {/* <div>
         {apiData.map(dataif () => (
