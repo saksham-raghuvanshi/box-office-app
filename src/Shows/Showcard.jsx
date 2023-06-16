@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Showcard = ({ id, name, image, summary }) => {
+const Showcard = ({ name, image, summary }) => {
   const summarystrriped = summary
     ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')
     : 'No Description';

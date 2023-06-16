@@ -8,9 +8,7 @@ const Showgrid = ({ shows }) => {
           key={data.show.id}
           id={data.show.id}
           name={data.show.name}
-          image={
-            data.show.image ? data.show.image.medium : '../images/not-found.png'
-          }
+          image={data.show.image ? data.show.image.medium : '/not-found.png'}
           summary={data.show.summary}
         />
       ))}
