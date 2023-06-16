@@ -1,11 +1,7 @@
 // import React from 'react'
 
 const Starred = () => {
-  return (
-    <div>
-      Starred
-    </div>
-  )
-}
+  return <div>Starred</div>;
+};
 
-export default Starred
+export default Starred;
