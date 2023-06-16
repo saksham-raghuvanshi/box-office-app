@@ -5,6 +5,7 @@ import Starred from './Pages/Starred';
 import Notfound from './Pages/Notfound';
 import MainLayout from './Components/MainLayout';
 import './Styles/styles.scss';
+import Show from './Components/Show';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/starred" element={<Starred />} />
+
+            {/* page with dynamic content. creating Show page */}
+            <Route path="/show/:showid" element={<Show />} />
             <Route path="*" element={<Notfound />} />
           </Route>
         </Routes>
