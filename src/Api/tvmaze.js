@@ -15,3 +15,7 @@ export const searchforshow = query => {
 export const searchforactor = query => {
   return apiGet(`/search/people?q=${query}`);
 };
+
+export const getshowbyid = showid => {
+  return apiGet(`/shows/${showid}`);
+};
