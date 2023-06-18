@@ -15,11 +15,10 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/starred" element={<Starred />} />
-
-            {/* page with dynamic content. creating Show page */}
-            <Route path="/show/:showid" element={<Show />} />
-            <Route path="*" element={<Notfound />} />
           </Route>
+          {/* page with dynamic content. creating Show page */}
+          <Route path="/show/:showid" element={<Show />} />
+          <Route path="*" element={<Notfound />} />
         </Routes>
       </Router>
     </div>
