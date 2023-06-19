@@ -1,5 +1,5 @@
 // import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getshowbyid } from '../Api/tvmaze';
 import { useQuery } from '@tanstack/react-query';
 import ShowMainData from './ShowMainData';
@@ -62,6 +62,7 @@ const Show = () => {
   if (showData) {
     return (
       <div>
+        <Link to="/">Go to Home</Link>
         <ShowMainData
           image={showData.image}
           name={showData.name}
