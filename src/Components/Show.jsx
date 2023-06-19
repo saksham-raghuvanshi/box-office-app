@@ -2,6 +2,10 @@
 import { useParams } from 'react-router-dom';
 import { getshowbyid } from '../Api/tvmaze';
 import { useQuery } from '@tanstack/react-query';
+import ShowMainData from './ShowMainData';
+import Details from './Details';
+import Season from './Season';
+import Cast from './Cast';
 
 //Work Custom React Hook
 
@@ -56,10 +60,34 @@ const Show = () => {
   }
 
   if (showData) {
-    return <div>Got Show Data : {showData.name}</div>;
+    return (
+      <div>
+        <ShowMainData
+          image={showData.image}
+          name={showData.name}
+          rating={showData.rating}
+          summary={showData.summary}
+          genres={showData.genres}
+        />
+
+        <div>
+          <h2>Details: </h2>
+          <Details
+            status={showData.status}
+            premiered={showData.premiered}
+            network={showData.network}
+          />
+        </div>
+        <h2>Seasons: </h2>
+        <Season seasons={showData._embedded.seasons} />
+
+        <h2>Cast :</h2>
+        <Cast cast={showData._embedded.cast} />
+      </div>
+    );
   }
 
-  return <div>data is loading</div>;
+  return <div>Data is Loading</div>;
 };
 
 export default Show;

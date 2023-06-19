@@ -17,5 +17,5 @@ export const searchforactor = query => {
 };
 
 export const getshowbyid = showid => {
-  return apiGet(`/shows/${showid}`);
+  return apiGet(`/shows/${showid}?embed[]=seasons&embed[]=cast`);
 };
