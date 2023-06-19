@@ -1,5 +1,22 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 import Showcard from './Showcard';
+
+//lets create custom hook to store starred show in localstorage
+
+const uselocalstorage = (reducer, intialState, storagekey) => {
+  const [state, dispatch] = useReducer(reducer, intialState, intial => {
+    const localvalue = localStorage.getItem(storagekey);
+    //if there  is value in local storage already then it convertr first from string to array fotr that we use JSON.parse
+    return localvalue ? JSON.parse(localvalue) : intial;
+  });
+
+  //store changing state value starred and dispatch if state change and localkey change then run this
+  useEffect(() => {
+    localStorage.setItem(storagekey, JSON.stringify(state));
+  }, [state, storagekey]);
+
+  return [state, dispatch];
+};
 
 const starredShowsReducer = (currentStarred, action) => {
   switch (action.type) {
@@ -16,7 +33,14 @@ const starredShowsReducer = (currentStarred, action) => {
 };
 
 const Showgrid = ({ shows }) => {
-  const [starredShows, dispacthStarred] = useReducer(starredShowsReducer, []);
+  // const [starredShows, dispacthStarred] = useReducer(starredShowsReducer, []);
+  const [starredShows, dispacthStarred] = uselocalstorage(
+    starredShowsReducer,
+    [],
+    'Starredshows'
+  );
+
+  // uselocalstorage (starredShowsReducer,[], 'StarredShows') //starredshows is key name
 
   const onStarClick = showid => {
     //Check whether the value of showid exists within the starredShows array or Not
