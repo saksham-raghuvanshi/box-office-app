@@ -11,7 +11,7 @@ const Showcard = ({ id, name, image, summary, star, isStarred }) => {
       <p>{summarystrriped}</p>
 
       <div>
-        <a href={`show/${id}`} target="_blank" rel="noreferrer">
+        <a href={`show/${id}`} rel="noreferrer">
           Show More
         </a>
         <button type="buttton" onClick={() => star(id)}>

@@ -19,3 +19,9 @@ export const searchforactor = query => {
 export const getshowbyid = showid => {
   return apiGet(`/shows/${showid}?embed[]=seasons&embed[]=cast`);
 };
+
+export const getshowbyids = async showids => {
+  const promises = showids.map(showid => apiGet(`/shows/${showid}`));
+
+  return Promise.all(promises);
+};
