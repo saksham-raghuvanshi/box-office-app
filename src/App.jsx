@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './Styles/notfound.scss';
 import Home from './Pages/Home';
@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <QueryClientProvider client={queryClient}>
         <GlobalTheme>
-          <Router>
+          <HashRouter>
             <Routes>
               <Route element={<MainLayout />}>
                 <Route path="/" element={<Home />} />
@@ -25,7 +25,7 @@ function App() {
               <Route path="/show/:showid" element={<Show />} />
               <Route path="*" element={<Notfound />} />
             </Routes>
-          </Router>
+          </HashRouter>
         </GlobalTheme>
       </QueryClientProvider>
     </div>
