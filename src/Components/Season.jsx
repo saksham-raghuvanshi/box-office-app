@@ -11,10 +11,12 @@ const Season = ({ seasons }) => {
 
       <SeasonList>
         {seasons.map(season => (
-          <div key={season.id}>
-            <p>Seasons : {season.number}</p>
-            <p>Episodes: {season.episodeOrder}</p>
-            <div>
+          <div key={season.id} className="season-item">
+            <div className="left">
+              <p>Seasons : {season.number}</p>
+              <p>Episodes: {season.episodeOrder}</p>
+            </div>
+            <div className="right">
               Aired : {season.premierDate} - {season.endDate}
             </div>
           </div>
@@ -43,7 +45,7 @@ const SeasonList = styled.div`
       margin-bottom: 0;
     }
     .left {
-      flex: 0 0 30%;
+      flex: 0 0 20%;
       border-right: 1px solid #b0b0b0;
       padding-right: 20px;
     }
