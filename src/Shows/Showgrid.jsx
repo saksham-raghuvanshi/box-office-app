@@ -2,6 +2,7 @@
 import Showcard from './Showcard';
 import { useStarShows } from '../Lib/useStarShows';
 import { FlexGrid } from '../Common/FlexGrid';
+import NotFoundImg from '../images/not-found.png';
 
 //lets create custom hook to store starred show in localstorage
 
@@ -58,7 +59,7 @@ const Showgrid = ({ shows }) => {
           key={data.show.id}
           id={data.show.id}
           name={data.show.name}
-          image={data.show.image ? data.show.image.medium : '/not-found.png'}
+          image={data.show.image ? data.show.image.medium : NotFoundImg}
           summary={data.show.summary}
           star={onStarClick}
           isStarred={starredShows.includes(data.show.id)}
