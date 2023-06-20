@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CustomRadio from '../Pages/CustomRadio';
 
 const Searchform = ({ onSearch }) => {
   const [searchoption, setSearchoption] = useState('shows');
@@ -35,7 +36,22 @@ const Searchform = ({ onSearch }) => {
           placeholder="Search for something"
         />
 
-        <label>
+        <CustomRadio
+          label="shows"
+          name="search-option"
+          value="shows"
+          checked={searchoption === 'shows'}
+          onChange={OnRadiochange}
+        />
+
+        <CustomRadio
+          label="actors"
+          name="search-option"
+          value="actors"
+          checked={searchoption === 'actors'}
+          onChange={OnRadiochange}
+        />
+        {/* <label>
           Shows
           <input
             type="radio"
@@ -44,9 +60,9 @@ const Searchform = ({ onSearch }) => {
             checked={searchoption === 'shows'}
             onChange={OnRadiochange}
           />
-        </label>
+        </label> */}
 
-        <label>
+        {/* <label>
           Actors
           <input
             type="radio"
@@ -55,7 +71,7 @@ const Searchform = ({ onSearch }) => {
             checked={searchoption === 'actors'}
             onChange={OnRadiochange}
           />
-        </label>
+        </label> */}
         <button type="submit">Search</button>
       </form>
     </div>
