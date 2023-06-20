@@ -15,7 +15,7 @@ const Showcard = ({ id, name, image, summary, star, isStarred }) => {
       <p>{summarystrriped}</p>
 
       <ActionSection>
-        <Link href={`show/${id}`} rel="noreferrer">
+        <Link to={`show/${id}`} rel="noreferrer">
           Show More
         </Link>
 
