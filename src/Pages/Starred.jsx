@@ -1,5 +1,6 @@
 // import React from 'react'
 import { getshowbyids } from '../Api/tvmaze';
+import { TextCenter } from '../Common/TextCenter';
 import { useStarShows } from '../Lib/useStarShows';
 import Showgrid from '../Shows/Showgrid';
 import { useQuery } from '@tanstack/react-query';
@@ -21,7 +22,7 @@ const Starred = () => {
 
   //starredshow && starredshow.length==0
   if (starredshow?.length === 0) {
-    return <div>No shows were Starred</div>;
+    return <TextCenter>No shows were Starred</TextCenter>;
   }
 
   if (starredshow?.length > 0) {
@@ -29,9 +30,9 @@ const Starred = () => {
   }
 
   if (starredshowerror) {
-    return <div>Error occur : {starredshowerror.message}</div>;
+    return <TextCenter>Error occur : {starredshowerror.message}</TextCenter>;
   }
-  return <div>shows are still loading</div>;
+  return <TextCenter>shows are still loading</TextCenter>;
 };
 
 export default Starred;

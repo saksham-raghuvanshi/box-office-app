@@ -1,6 +1,7 @@
 // import { useReducer, useEffect } from 'react';
 import Showcard from './Showcard';
 import { useStarShows } from '../Lib/useStarShows';
+import { FlexGrid } from '../Common/FlexGrid';
 
 //lets create custom hook to store starred show in localstorage
 
@@ -51,7 +52,7 @@ const Showgrid = ({ shows }) => {
   };
 
   return (
-    <div>
+    <FlexGrid>
       {shows.map(data => (
         <Showcard
           key={data.show.id}
@@ -63,7 +64,7 @@ const Showgrid = ({ shows }) => {
           isStarred={starredShows.includes(data.show.id)}
         />
       ))}
-    </div>
+    </FlexGrid>
   );
 };
 
