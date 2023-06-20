@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/saksham-raghuvanshi/box-office-app/static/css/main.e09e415e.css",
+    "main.js": "/saksham-raghuvanshi/box-office-app/static/js/main.3c9e329f.js",
+    "static/js/787.7290e99f.chunk.js": "/saksham-raghuvanshi/box-office-app/static/js/787.7290e99f.chunk.js",
+    "service-worker.js": "/saksham-raghuvanshi/box-office-app/service-worker.js",
+    "index.html": "/saksham-raghuvanshi/box-office-app/index.html",
+    "main.e09e415e.css.map": "/saksham-raghuvanshi/box-office-app/static/css/main.e09e415e.css.map",
+    "main.3c9e329f.js.map": "/saksham-raghuvanshi/box-office-app/static/js/main.3c9e329f.js.map",
+    "787.7290e99f.chunk.js.map": "/saksham-raghuvanshi/box-office-app/static/js/787.7290e99f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e09e415e.css",
+    "static/js/main.3c9e329f.js"
+  ]
+}
