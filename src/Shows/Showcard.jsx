@@ -1,3 +1,5 @@
+import styled from 'styled-components';
+
 const Showcard = ({ id, name, image, summary, star, isStarred }) => {
   const summarystrriped = summary
     ? summary.split(' ').slice(0, 10).join(' ').replace(/<.+?>/g, '')
